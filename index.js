@@ -9,6 +9,7 @@ app.use(bodyParser.json())
 
 app.post('/', (req, res) => {
     console.log('web hook received')
+    res.status(200).send("Webhook received. Deployment in progress...");
     const deployScript = "bash portofolio-deploy-script.sh"
 
     exec(deployScript, (error, stdout, stderr) => {
